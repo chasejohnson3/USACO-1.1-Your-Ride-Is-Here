@@ -17,12 +17,14 @@ int main()
     int groupProductMod, cometProductMod;
 
 
-    ifstream fin("ride.txt");
+    ifstream fin("ride.in");
     if (fin.fail())
     {
         cerr << "Unable to open ride.txt";
         return 0;
     }
+    ofstream fout("ride.out");
+
     fin >> firstLine;
     fin >> secondLine;
 
@@ -32,12 +34,12 @@ int main()
     if (groupProductMod == cometProductMod)
     {
         // If the remainder of the product of the numbers of the comet equals that of the group, print GO.
-        cout << "GO";
+        fout << "GO" << endl;
     }
     else
     {
         // If the remainder of the product of the numbers of the comet do not equal that of the group, print STAY.
-        cout << "STAY";
+        fout << "STAY" << endl;
     }
     return 0;
 }
