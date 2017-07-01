@@ -13,21 +13,25 @@ int decipherMod(string code);
 
 int main()
 {
+    // Initialize variables
     string firstLine, secondLine;
     int groupProductMod, cometProductMod;
 
 
+    // Read in the file
     ifstream fin("ride.in");
     if (fin.fail())
     {
         cerr << "Unable to open ride.txt";
         return 0;
     }
+    // Create the output file
     ofstream fout("ride.out");
 
     fin >> firstLine;
     fin >> secondLine;
 
+    // Find the modulus of the product of the numbers the letters represent (this is the whole problem, essentially)
     groupProductMod = decipherMod(firstLine);
     cometProductMod = decipherMod(secondLine);
 
@@ -44,6 +48,12 @@ int main()
     return 0;
 }
 
+/*******************************************************************************************
+* Description:  <<  Given an all caps word, converts the letters to numbers (A=1, Z=26)
+                    and takes the modulus 47 of the product of those numbers.           >> *
+* Inputs:       <<  (string) The all caps word                                          >> *
+* Output:       <<  (int) The calculated modulus of the product                         >> *
+********************************************************************************************/
 int decipherMod(string code)
 {
     int product(1), letterValue;
